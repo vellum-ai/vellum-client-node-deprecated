@@ -6,11 +6,14 @@ git_push.sh
 model/finishReasonEnum.ts
 model/generateErrorResponse.ts
 model/generateRequest.ts
+model/generateRequestBody.ts
 model/generateResponse.ts
+model/generateResult.ts
+model/generateResultData.ts
+model/generateResultError.ts
 model/models.ts
 model/normalizedCompletion.ts
 model/normalizedLogProbs.ts
 model/normalizedTokenLogProbs.ts
-model/providerEnum.ts
 package.json
 tsconfig.json

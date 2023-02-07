@@ -3,11 +3,14 @@ import localVarRequest from 'request';
 export * from './finishReasonEnum';
 export * from './generateErrorResponse';
 export * from './generateRequest';
+export * from './generateRequestBody';
 export * from './generateResponse';
+export * from './generateResult';
+export * from './generateResultData';
+export * from './generateResultError';
 export * from './normalizedCompletion';
 export * from './normalizedLogProbs';
 export * from './normalizedTokenLogProbs';
-export * from './providerEnum';
 
 import * as fs from 'fs';
 
@@ -25,11 +28,14 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 import { FinishReasonEnum } from './finishReasonEnum';
 import { GenerateErrorResponse } from './generateErrorResponse';
 import { GenerateRequest } from './generateRequest';
+import { GenerateRequestBody } from './generateRequestBody';
 import { GenerateResponse } from './generateResponse';
+import { GenerateResult } from './generateResult';
+import { GenerateResultData } from './generateResultData';
+import { GenerateResultError } from './generateResultError';
 import { NormalizedCompletion } from './normalizedCompletion';
 import { NormalizedLogProbs } from './normalizedLogProbs';
 import { NormalizedTokenLogProbs } from './normalizedTokenLogProbs';
-import { ProviderEnum } from './providerEnum';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -45,13 +51,16 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "FinishReasonEnum": FinishReasonEnum,
-        "ProviderEnum": ProviderEnum,
 }
 
 let typeMap: {[index: string]: any} = {
     "GenerateErrorResponse": GenerateErrorResponse,
     "GenerateRequest": GenerateRequest,
+    "GenerateRequestBody": GenerateRequestBody,
     "GenerateResponse": GenerateResponse,
+    "GenerateResult": GenerateResult,
+    "GenerateResultData": GenerateResultData,
+    "GenerateResultError": GenerateResultError,
     "NormalizedCompletion": NormalizedCompletion,
     "NormalizedLogProbs": NormalizedLogProbs,
     "NormalizedTokenLogProbs": NormalizedTokenLogProbs,

@@ -11,27 +11,34 @@
  */
 
 import { RequestFile } from './models';
+import { GenerateRequest } from './generateRequest';
 
-export class GenerateRequest {
-    'inputValues': { [key: string]: any; };
-    'externalIds'?: Array<string> | null;
+export class GenerateRequestBody {
+    'deploymentId'?: string | null;
+    'deploymentName'?: string | null;
+    'requests': Array<GenerateRequest>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "inputValues",
-            "baseName": "input_values",
-            "type": "{ [key: string]: any; }"
+            "name": "deploymentId",
+            "baseName": "deployment_id",
+            "type": "string"
         },
         {
-            "name": "externalIds",
-            "baseName": "external_ids",
-            "type": "Array<string>"
+            "name": "deploymentName",
+            "baseName": "deployment_name",
+            "type": "string"
+        },
+        {
+            "name": "requests",
+            "baseName": "requests",
+            "type": "Array<GenerateRequest>"
         }    ];
 
     static getAttributeTypeMap() {
-        return GenerateRequest.attributeTypeMap;
+        return GenerateRequestBody.attributeTypeMap;
     }
 }
 

@@ -27,10 +27,10 @@ generate.setApiKey(GenerateApiApiKeys.apiKeyAuth, process.env.VELLUM_API_KEY)
 const generation = await generate.generate(
   {
     deploymentName: "my-deployment",
-    inputValues: [{"input": "Hello, world!"}],
+    requests: [{inputValues: {"question": "Hellow, world!"}}],
   },
 )
-console.log(generation.body.completions[0][0].text);
+console.log(generation.body.results[0].data.completions[0].text);
 ```
 
 ### Error handling
