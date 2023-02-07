@@ -16,9 +16,11 @@ import { NormalizedLogProbs } from './normalizedLogProbs';
 
 export class NormalizedCompletion {
     'id': string;
+    'externalId'?: string | null;
     'text': string;
     'finishReason': FinishReasonEnum;
     'logprobs': NormalizedLogProbs;
+    'modelVersionId': string;
 
     static discriminator: string | undefined = undefined;
 
@@ -26,6 +28,11 @@ export class NormalizedCompletion {
         {
             "name": "id",
             "baseName": "id",
+            "type": "string"
+        },
+        {
+            "name": "externalId",
+            "baseName": "external_id",
             "type": "string"
         },
         {
@@ -42,6 +49,11 @@ export class NormalizedCompletion {
             "name": "logprobs",
             "baseName": "logprobs",
             "type": "NormalizedLogProbs"
+        },
+        {
+            "name": "modelVersionId",
+            "baseName": "model_version_id",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {

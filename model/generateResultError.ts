@@ -11,22 +11,21 @@
  */
 
 import { RequestFile } from './models';
-import { GenerateResult } from './generateResult';
 
-export class GenerateResponse {
-    'results': Array<GenerateResult>;
+export class GenerateResultError {
+    'message': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "results",
-            "baseName": "results",
-            "type": "Array<GenerateResult>"
+            "name": "message",
+            "baseName": "message",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return GenerateResponse.attributeTypeMap;
+        return GenerateResultError.attributeTypeMap;
     }
 }
 

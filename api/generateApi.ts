@@ -16,7 +16,7 @@ import http from 'http';
 
 /* tslint:disable:no-unused-locals */
 import { GenerateErrorResponse } from '../model/generateErrorResponse';
-import { GenerateRequest } from '../model/generateRequest';
+import { GenerateRequestBody } from '../model/generateRequestBody';
 import { GenerateResponse } from '../model/generateResponse';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
@@ -93,9 +93,9 @@ export class GenerateApi {
 
     /**
      * 
-     * @param generateRequest 
+     * @param generateRequestBody 
      */
-    public async generate (generateRequest: GenerateRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GenerateResponse;  }> {
+    public async generate (generateRequestBody: GenerateRequestBody, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: GenerateResponse;  }> {
         const localVarPath = this.basePath + '/v1/generate';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -108,9 +108,9 @@ export class GenerateApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'generateRequest' is not null or undefined
-        if (generateRequest === null || generateRequest === undefined) {
-            throw new Error('Required parameter generateRequest was null or undefined when calling generate.');
+        // verify required parameter 'generateRequestBody' is not null or undefined
+        if (generateRequestBody === null || generateRequestBody === undefined) {
+            throw new Error('Required parameter generateRequestBody was null or undefined when calling generate.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -124,7 +124,7 @@ export class GenerateApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(generateRequest, "GenerateRequest")
+            body: ObjectSerializer.serialize(generateRequestBody, "GenerateRequestBody")
         };
 
         let authenticationPromise = Promise.resolve();
