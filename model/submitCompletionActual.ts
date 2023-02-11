@@ -11,16 +11,13 @@
  */
 
 import { RequestFile } from './models';
-import { FinishReasonEnum } from './finishReasonEnum';
-import { NormalizedLogProbs } from './normalizedLogProbs';
 
-export class NormalizedCompletion {
-    'id': string;
+export class SubmitCompletionActual {
+    'id'?: string | null;
     'externalId'?: string | null;
-    'text': string;
-    'finishReason': FinishReasonEnum;
-    'logprobs'?: NormalizedLogProbs | null;
-    'modelVersionId': string;
+    'text'?: string | null;
+    'quality'?: number | null;
+    'timestamp'?: Date | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -41,25 +38,18 @@ export class NormalizedCompletion {
             "type": "string"
         },
         {
-            "name": "finishReason",
-            "baseName": "finish_reason",
-            "type": "FinishReasonEnum"
+            "name": "quality",
+            "baseName": "quality",
+            "type": "number"
         },
         {
-            "name": "logprobs",
-            "baseName": "logprobs",
-            "type": "NormalizedLogProbs"
-        },
-        {
-            "name": "modelVersionId",
-            "baseName": "model_version_id",
-            "type": "string"
+            "name": "timestamp",
+            "baseName": "timestamp",
+            "type": "Date"
         }    ];
 
     static getAttributeTypeMap() {
-        return NormalizedCompletion.attributeTypeMap;
+        return SubmitCompletionActual.attributeTypeMap;
     }
 }
 
-export namespace NormalizedCompletion {
-}

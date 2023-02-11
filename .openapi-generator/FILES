@@ -2,6 +2,7 @@
 api.ts
 api/apis.ts
 api/generateApi.ts
+api/submitCompletionActualsApi.ts
 git_push.sh
 model/finishReasonEnum.ts
 model/generateErrorResponse.ts
@@ -15,5 +16,8 @@ model/models.ts
 model/normalizedCompletion.ts
 model/normalizedLogProbs.ts
 model/normalizedTokenLogProbs.ts
+model/submitCompletionActual.ts
+model/submitCompletionActualsErrorResponse.ts
+model/submitCompletionActualsRequest.ts
 package.json
 tsconfig.json

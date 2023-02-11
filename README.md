@@ -12,6 +12,7 @@ $ npm install vellum-client-node
 
 ## Usage
 
+### Setup
 You'll need an API key from your Vellum account to use this library. You can create an API key from within your account [here](https://app.vellum.ai/api-keys). 
 We recommend setting it as an environment variable.
 
@@ -23,15 +24,50 @@ const { GenerateApi, GenerateApiApiKeys } = require("vellum-client-node");
 
 const generate = new GenerateApi();
 generate.setApiKey(GenerateApiApiKeys.apiKeyAuth, process.env.VELLUM_API_KEY)
+```
 
+### Generating text
+Here is how you can generate text completions using Vellum's API.
+
+```javascript
 const generation = await generate.generate(
   {
     deploymentName: "my-deployment",
-    requests: [{inputValues: {"question": "Hellow, world!"}}],
+    requests: [
+      {
+        inputValues: {"question": "Could I please get a refund?"},
+      },
+    ],
   },
 )
 console.log(generation.body.results[0].data.completions[0].text);
 ```
+
+### Submitting Actuals
+Submitting actuals is how you provide feedback to Vellum about the quality of the
+generated text. This feedback can be used to measure model quality and improve it over time.
+
+```javascript
+const actuals = new SubmitCompletionActualsApi();
+actuals.setApiKey(SubmitCompletionActualsApiApiKeys.apiKeyAuth, process.env.VELLUM_API_KEY)
+
+actuals.submitCompletionActuals(
+  {
+    deploymentName: "my-deployment",
+    actuals: [
+      {
+        id: "<id-returned-from-generate-endpoint>",
+        quality: 1.0,  // 1.0 is good, 0.0 is bad
+        text: "Sorry, we do not offer refunds."
+      },
+    ],
+  },
+)
+```
+**Note:** If you don't want to keep track of the ids that Vellum generates, you can include an `externalId`
+key in the initial `generate` request. You can then include this `externalId` when submitting actuals.
+If you use this approach, be sure that the ids you provide truly are unique, or you may get unexpected
+results.
 
 ### Error handling
 

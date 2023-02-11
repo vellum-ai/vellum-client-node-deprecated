@@ -11,6 +11,9 @@ export * from './generateResultError';
 export * from './normalizedCompletion';
 export * from './normalizedLogProbs';
 export * from './normalizedTokenLogProbs';
+export * from './submitCompletionActual';
+export * from './submitCompletionActualsErrorResponse';
+export * from './submitCompletionActualsRequest';
 
 import * as fs from 'fs';
 
@@ -36,6 +39,9 @@ import { GenerateResultError } from './generateResultError';
 import { NormalizedCompletion } from './normalizedCompletion';
 import { NormalizedLogProbs } from './normalizedLogProbs';
 import { NormalizedTokenLogProbs } from './normalizedTokenLogProbs';
+import { SubmitCompletionActual } from './submitCompletionActual';
+import { SubmitCompletionActualsErrorResponse } from './submitCompletionActualsErrorResponse';
+import { SubmitCompletionActualsRequest } from './submitCompletionActualsRequest';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -64,6 +70,9 @@ let typeMap: {[index: string]: any} = {
     "NormalizedCompletion": NormalizedCompletion,
     "NormalizedLogProbs": NormalizedLogProbs,
     "NormalizedTokenLogProbs": NormalizedTokenLogProbs,
+    "SubmitCompletionActual": SubmitCompletionActual,
+    "SubmitCompletionActualsErrorResponse": SubmitCompletionActualsErrorResponse,
+    "SubmitCompletionActualsRequest": SubmitCompletionActualsRequest,
 }
 
 export class ObjectSerializer {
