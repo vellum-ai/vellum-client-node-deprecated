@@ -16,20 +16,15 @@ $ npm install vellum-client-node
 You'll need an API key from your Vellum account to use this library. You can create an API key from within your account [here](https://app.vellum.ai/api-keys). 
 We recommend setting it as an environment variable.
 
-Here's an example of initializing the library with the API key
-loaded from an environment variable and initiating a generation:
+### Generating text
+Here is how you can generate text completions using Vellum's API.
 
 ```javascript
 const { GenerateApi, GenerateApiApiKeys } = require("vellum-client-node");
 
 const generate = new GenerateApi();
-generate.setApiKey(GenerateApiApiKeys.apiKeyAuth, process.env.VELLUM_API_KEY)
-```
+generate.setApiKey(GenerateApiApiKeys.apiKeyAuth, process.env.VELLUM_API_KEY);
 
-### Generating text
-Here is how you can generate text completions using Vellum's API.
-
-```javascript
 const generation = await generate.generate(
   {
     deploymentName: "my-deployment",
@@ -48,26 +43,49 @@ Submitting actuals is how you provide feedback to Vellum about the quality of th
 generated text. This feedback can be used to measure model quality and improve it over time.
 
 ```javascript
-const actuals = new SubmitCompletionActualsApi();
-actuals.setApiKey(SubmitCompletionActualsApiApiKeys.apiKeyAuth, process.env.VELLUM_API_KEY)
+const { SubmitCompletionActualsApi, SubmitCompletionActualsApiApiKeys } = require("vellum-client-node");
 
-actuals.submitCompletionActuals(
+const actuals = new SubmitCompletionActualsApi();
+actuals.setApiKey(SubmitCompletionActualsApiApiKeys.apiKeyAuth, process.env.VELLUM_API_KEY);
+
+const actualsResult = await actuals.submitCompletionActuals(
   {
     deploymentName: "my-deployment",
     actuals: [
       {
         id: "<id-returned-from-generate-endpoint>",
-        quality: 1.0,  // 1.0 is good, 0.0 is bad
+        quality: 1.0,  // 0.0 is bad, 1.0 is good
         text: "Sorry, we do not offer refunds."
       },
     ],
   },
 )
+console.log(actualsResult.body.results[0]);
 ```
 **Note:** If you don't want to keep track of the ids that Vellum generates, you can include an `externalId`
 key in the initial `generate` request. You can then include this `externalId` when submitting actuals.
 If you use this approach, be sure that the ids you provide truly are unique, or you may get unexpected
 results.
+
+### Performing a Search
+Vellum's Search allows you to upload documents and then perform semantic searches against them.
+Here is an example of how to perform a search:
+
+```javascript
+const { SearchApi, SearchApiApiKeys } = require("vellum-client-node");
+
+const search = new SearchApi();
+search.setApiKey(SearchApiApiKeys.apiKeyAuth,  process.env.VELLUM_API_KEY);
+
+const searchResult = await search.search({
+    indexName: "help-center-docs",
+    query: "What is fine tuning?",
+    options: { limit: 3 },
+});
+
+console.log(searchResult.body.results);
+```
+
 
 ### Error handling
 

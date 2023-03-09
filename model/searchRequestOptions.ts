@@ -11,22 +11,21 @@
  */
 
 import { RequestFile } from './models';
-import { EnrichedNormalizedCompletion } from './enrichedNormalizedCompletion';
 
-export class GenerateResultData {
-    'completions': Array<EnrichedNormalizedCompletion>;
+export class SearchRequestOptions {
+    'limit'?: number | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "completions",
-            "baseName": "completions",
-            "type": "Array<EnrichedNormalizedCompletion>"
+            "name": "limit",
+            "baseName": "limit",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
-        return GenerateResultData.attributeTypeMap;
+        return SearchRequestOptions.attributeTypeMap;
     }
 }
 

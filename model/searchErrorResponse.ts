@@ -11,22 +11,24 @@
  */
 
 import { RequestFile } from './models';
-import { EnrichedNormalizedCompletion } from './enrichedNormalizedCompletion';
 
-export class GenerateResultData {
-    'completions': Array<EnrichedNormalizedCompletion>;
+export class SearchErrorResponse {
+    /**
+    * Details about why the request failed.
+    */
+    'detail': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "completions",
-            "baseName": "completions",
-            "type": "Array<EnrichedNormalizedCompletion>"
+            "name": "detail",
+            "baseName": "detail",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return GenerateResultData.attributeTypeMap;
+        return SearchErrorResponse.attributeTypeMap;
     }
 }
 
