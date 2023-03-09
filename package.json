@@ -1,6 +1,6 @@
 {
     "name": "vellum-client-node",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "NodeJS client for vellum-client-node",
     "repository": {
         "type": "git",
