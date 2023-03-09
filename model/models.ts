@@ -1,16 +1,24 @@
 import localVarRequest from 'request';
 
+export * from './document';
+export * from './enrichedNormalizedCompletion';
 export * from './finishReasonEnum';
 export * from './generateErrorResponse';
+export * from './generateOptions';
 export * from './generateRequest';
 export * from './generateRequestBody';
 export * from './generateResponse';
 export * from './generateResult';
 export * from './generateResultData';
 export * from './generateResultError';
-export * from './normalizedCompletion';
+export * from './logprobsEnum';
 export * from './normalizedLogProbs';
 export * from './normalizedTokenLogProbs';
+export * from './searchErrorResponse';
+export * from './searchRequestBody';
+export * from './searchRequestOptions';
+export * from './searchResponse';
+export * from './searchResult';
 export * from './submitCompletionActual';
 export * from './submitCompletionActualsErrorResponse';
 export * from './submitCompletionActualsRequest';
@@ -28,17 +36,25 @@ export interface RequestDetailedFile {
 export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 
+import { Document } from './document';
+import { EnrichedNormalizedCompletion } from './enrichedNormalizedCompletion';
 import { FinishReasonEnum } from './finishReasonEnum';
 import { GenerateErrorResponse } from './generateErrorResponse';
+import { GenerateOptions } from './generateOptions';
 import { GenerateRequest } from './generateRequest';
 import { GenerateRequestBody } from './generateRequestBody';
 import { GenerateResponse } from './generateResponse';
 import { GenerateResult } from './generateResult';
 import { GenerateResultData } from './generateResultData';
 import { GenerateResultError } from './generateResultError';
-import { NormalizedCompletion } from './normalizedCompletion';
+import { LogprobsEnum } from './logprobsEnum';
 import { NormalizedLogProbs } from './normalizedLogProbs';
 import { NormalizedTokenLogProbs } from './normalizedTokenLogProbs';
+import { SearchErrorResponse } from './searchErrorResponse';
+import { SearchRequestBody } from './searchRequestBody';
+import { SearchRequestOptions } from './searchRequestOptions';
+import { SearchResponse } from './searchResponse';
+import { SearchResult } from './searchResult';
 import { SubmitCompletionActual } from './submitCompletionActual';
 import { SubmitCompletionActualsErrorResponse } from './submitCompletionActualsErrorResponse';
 import { SubmitCompletionActualsRequest } from './submitCompletionActualsRequest';
@@ -57,19 +73,27 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "FinishReasonEnum": FinishReasonEnum,
+        "LogprobsEnum": LogprobsEnum,
 }
 
 let typeMap: {[index: string]: any} = {
+    "Document": Document,
+    "EnrichedNormalizedCompletion": EnrichedNormalizedCompletion,
     "GenerateErrorResponse": GenerateErrorResponse,
+    "GenerateOptions": GenerateOptions,
     "GenerateRequest": GenerateRequest,
     "GenerateRequestBody": GenerateRequestBody,
     "GenerateResponse": GenerateResponse,
     "GenerateResult": GenerateResult,
     "GenerateResultData": GenerateResultData,
     "GenerateResultError": GenerateResultError,
-    "NormalizedCompletion": NormalizedCompletion,
     "NormalizedLogProbs": NormalizedLogProbs,
     "NormalizedTokenLogProbs": NormalizedTokenLogProbs,
+    "SearchErrorResponse": SearchErrorResponse,
+    "SearchRequestBody": SearchRequestBody,
+    "SearchRequestOptions": SearchRequestOptions,
+    "SearchResponse": SearchResponse,
+    "SearchResult": SearchResult,
     "SubmitCompletionActual": SubmitCompletionActual,
     "SubmitCompletionActualsErrorResponse": SubmitCompletionActualsErrorResponse,
     "SubmitCompletionActualsRequest": SubmitCompletionActualsRequest,

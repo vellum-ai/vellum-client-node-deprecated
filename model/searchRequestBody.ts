@@ -11,41 +11,40 @@
  */
 
 import { RequestFile } from './models';
-import { GenerateOptions } from './generateOptions';
-import { GenerateRequest } from './generateRequest';
+import { SearchRequestOptions } from './searchRequestOptions';
 
-export class GenerateRequestBody {
-    'deploymentId'?: string | null;
-    'deploymentName'?: string | null;
-    'requests': Array<GenerateRequest>;
-    'options'?: GenerateOptions | null;
+export class SearchRequestBody {
+    'indexId'?: string | null;
+    'indexName'?: string | null;
+    'query': string;
+    'options'?: SearchRequestOptions | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "deploymentId",
-            "baseName": "deployment_id",
+            "name": "indexId",
+            "baseName": "index_id",
             "type": "string"
         },
         {
-            "name": "deploymentName",
-            "baseName": "deployment_name",
+            "name": "indexName",
+            "baseName": "index_name",
             "type": "string"
         },
         {
-            "name": "requests",
-            "baseName": "requests",
-            "type": "Array<GenerateRequest>"
+            "name": "query",
+            "baseName": "query",
+            "type": "string"
         },
         {
             "name": "options",
             "baseName": "options",
-            "type": "GenerateOptions"
+            "type": "SearchRequestOptions"
         }    ];
 
     static getAttributeTypeMap() {
-        return GenerateRequestBody.attributeTypeMap;
+        return SearchRequestBody.attributeTypeMap;
     }
 }
 

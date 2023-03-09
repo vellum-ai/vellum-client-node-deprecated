@@ -11,22 +11,24 @@
  */
 
 import { RequestFile } from './models';
-import { EnrichedNormalizedCompletion } from './enrichedNormalizedCompletion';
+import { LogprobsEnum } from './logprobsEnum';
 
-export class GenerateResultData {
-    'completions': Array<EnrichedNormalizedCompletion>;
+export class GenerateOptions {
+    'logprobs'?: LogprobsEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "completions",
-            "baseName": "completions",
-            "type": "Array<EnrichedNormalizedCompletion>"
+            "name": "logprobs",
+            "baseName": "logprobs",
+            "type": "LogprobsEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return GenerateResultData.attributeTypeMap;
+        return GenerateOptions.attributeTypeMap;
     }
 }
 
+export namespace GenerateOptions {
+}

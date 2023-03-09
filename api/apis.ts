@@ -1,5 +1,7 @@
 export * from './generateApi';
 import { GenerateApi } from './generateApi';
+export * from './searchApi';
+import { SearchApi } from './searchApi';
 export * from './submitCompletionActualsApi';
 import { SubmitCompletionActualsApi } from './submitCompletionActualsApi';
 import * as http from 'http';
@@ -13,4 +15,4 @@ export class HttpError extends Error {
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [GenerateApi, SubmitCompletionActualsApi];
+export const APIS = [GenerateApi, SearchApi, SubmitCompletionActualsApi];

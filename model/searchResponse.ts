@@ -11,22 +11,22 @@
  */
 
 import { RequestFile } from './models';
-import { EnrichedNormalizedCompletion } from './enrichedNormalizedCompletion';
+import { SearchResult } from './searchResult';
 
-export class GenerateResultData {
-    'completions': Array<EnrichedNormalizedCompletion>;
+export class SearchResponse {
+    'results': Array<SearchResult>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "completions",
-            "baseName": "completions",
-            "type": "Array<EnrichedNormalizedCompletion>"
+            "name": "results",
+            "baseName": "results",
+            "type": "Array<SearchResult>"
         }    ];
 
     static getAttributeTypeMap() {
-        return GenerateResultData.attributeTypeMap;
+        return SearchResponse.attributeTypeMap;
     }
 }
 
