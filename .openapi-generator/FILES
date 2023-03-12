@@ -25,6 +25,7 @@ model/searchRequestBody.ts
 model/searchRequestOptions.ts
 model/searchResponse.ts
 model/searchResult.ts
+model/searchWeights.ts
 model/submitCompletionActual.ts
 model/submitCompletionActualsErrorResponse.ts
 model/submitCompletionActualsRequest.ts

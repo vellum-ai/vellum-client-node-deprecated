@@ -11,28 +11,27 @@
  */
 
 import { RequestFile } from './models';
-import { SearchWeights } from './searchWeights';
 
-export class SearchRequestOptions {
-    'limit'?: number | null;
-    'weights'?: SearchWeights | null;
+export class SearchWeights {
+    'semanticSimilarity': number;
+    'keywords': number;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "limit",
-            "baseName": "limit",
+            "name": "semanticSimilarity",
+            "baseName": "semantic_similarity",
             "type": "number"
         },
         {
-            "name": "weights",
-            "baseName": "weights",
-            "type": "SearchWeights"
+            "name": "keywords",
+            "baseName": "keywords",
+            "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
-        return SearchRequestOptions.attributeTypeMap;
+        return SearchWeights.attributeTypeMap;
     }
 }
 

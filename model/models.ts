@@ -19,6 +19,7 @@ export * from './searchRequestBody';
 export * from './searchRequestOptions';
 export * from './searchResponse';
 export * from './searchResult';
+export * from './searchWeights';
 export * from './submitCompletionActual';
 export * from './submitCompletionActualsErrorResponse';
 export * from './submitCompletionActualsRequest';
@@ -55,6 +56,7 @@ import { SearchRequestBody } from './searchRequestBody';
 import { SearchRequestOptions } from './searchRequestOptions';
 import { SearchResponse } from './searchResponse';
 import { SearchResult } from './searchResult';
+import { SearchWeights } from './searchWeights';
 import { SubmitCompletionActual } from './submitCompletionActual';
 import { SubmitCompletionActualsErrorResponse } from './submitCompletionActualsErrorResponse';
 import { SubmitCompletionActualsRequest } from './submitCompletionActualsRequest';
@@ -94,6 +96,7 @@ let typeMap: {[index: string]: any} = {
     "SearchRequestOptions": SearchRequestOptions,
     "SearchResponse": SearchResponse,
     "SearchResult": SearchResult,
+    "SearchWeights": SearchWeights,
     "SubmitCompletionActual": SubmitCompletionActual,
     "SubmitCompletionActualsErrorResponse": SubmitCompletionActualsErrorResponse,
     "SubmitCompletionActualsRequest": SubmitCompletionActualsRequest,
