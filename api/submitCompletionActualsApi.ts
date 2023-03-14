@@ -1,6 +1,6 @@
 /**
- * Vellum Predict API
- * Documentation of API endpoints used to make predictions through Vellum
+ * Vellum Client API
+ * Documentation of API endpoints of Vellum
  *
  * The version of the OpenAPI document: 1.0.0 (v1)
  * 
@@ -16,7 +16,7 @@ import http from 'http';
 
 /* tslint:disable:no-unused-locals */
 import { SubmitCompletionActualsErrorResponse } from '../model/submitCompletionActualsErrorResponse';
-import { SubmitCompletionActualsRequest } from '../model/submitCompletionActualsRequest';
+import { SubmitCompletionActualsRequestRequest } from '../model/submitCompletionActualsRequestRequest';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
 import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
@@ -92,9 +92,9 @@ export class SubmitCompletionActualsApi {
 
     /**
      * 
-     * @param submitCompletionActualsRequest 
+     * @param submitCompletionActualsRequestRequest 
      */
-    public async submitCompletionActuals (submitCompletionActualsRequest: SubmitCompletionActualsRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
+    public async submitCompletionActuals (submitCompletionActualsRequestRequest: SubmitCompletionActualsRequestRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body?: any;  }> {
         const localVarPath = this.basePath + '/v1/submit-completion-actuals';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -107,9 +107,9 @@ export class SubmitCompletionActualsApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'submitCompletionActualsRequest' is not null or undefined
-        if (submitCompletionActualsRequest === null || submitCompletionActualsRequest === undefined) {
-            throw new Error('Required parameter submitCompletionActualsRequest was null or undefined when calling submitCompletionActuals.');
+        // verify required parameter 'submitCompletionActualsRequestRequest' is not null or undefined
+        if (submitCompletionActualsRequestRequest === null || submitCompletionActualsRequestRequest === undefined) {
+            throw new Error('Required parameter submitCompletionActualsRequestRequest was null or undefined when calling submitCompletionActuals.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -123,7 +123,7 @@ export class SubmitCompletionActualsApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(submitCompletionActualsRequest, "SubmitCompletionActualsRequest")
+            body: ObjectSerializer.serialize(submitCompletionActualsRequestRequest, "SubmitCompletionActualsRequestRequest")
         };
 
         let authenticationPromise = Promise.resolve();

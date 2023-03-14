@@ -11,28 +11,21 @@
  */
 
 import { RequestFile } from './models';
-import { NormalizedTokenLogProbs } from './normalizedTokenLogProbs';
 
-export class NormalizedLogProbs {
-    'tokens': Array<NormalizedTokenLogProbs>;
-    'likelihood': number;
+export class UploadDocumentResponse {
+    'documentId': string;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "tokens",
-            "baseName": "tokens",
-            "type": "Array<NormalizedTokenLogProbs>"
-        },
-        {
-            "name": "likelihood",
-            "baseName": "likelihood",
-            "type": "number"
+            "name": "documentId",
+            "baseName": "document_id",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return NormalizedLogProbs.attributeTypeMap;
+        return UploadDocumentResponse.attributeTypeMap;
     }
 }
 

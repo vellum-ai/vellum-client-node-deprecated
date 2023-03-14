@@ -4,6 +4,8 @@ export * from './searchApi';
 import { SearchApi } from './searchApi';
 export * from './submitCompletionActualsApi';
 import { SubmitCompletionActualsApi } from './submitCompletionActualsApi';
+export * from './uploadDocumentApi';
+import { UploadDocumentApi } from './uploadDocumentApi';
 import * as http from 'http';
 
 export class HttpError extends Error {
@@ -15,4 +17,4 @@ export class HttpError extends Error {
 
 export { RequestFile } from '../model/models';
 
-export const APIS = [GenerateApi, SearchApi, SubmitCompletionActualsApi];
+export const APIS = [GenerateApi, SearchApi, SubmitCompletionActualsApi, UploadDocumentApi];

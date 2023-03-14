@@ -12,38 +12,26 @@
 
 import { RequestFile } from './models';
 
-export class NormalizedTokenLogProbs {
-    'token': string;
-    'logprob': number | null;
-    'topLogprobs': { [key: string]: number; } | null;
-    'textOffset': number;
+export class SearchWeightsRequest {
+    'semanticSimilarity': number;
+    'keywords': number;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "token",
-            "baseName": "token",
-            "type": "string"
-        },
-        {
-            "name": "logprob",
-            "baseName": "logprob",
+            "name": "semanticSimilarity",
+            "baseName": "semantic_similarity",
             "type": "number"
         },
         {
-            "name": "topLogprobs",
-            "baseName": "top_logprobs",
-            "type": "{ [key: string]: number; }"
-        },
-        {
-            "name": "textOffset",
-            "baseName": "text_offset",
+            "name": "keywords",
+            "baseName": "keywords",
             "type": "number"
         }    ];
 
     static getAttributeTypeMap() {
-        return NormalizedTokenLogProbs.attributeTypeMap;
+        return SearchWeightsRequest.attributeTypeMap;
     }
 }
 

@@ -11,28 +11,24 @@
  */
 
 import { RequestFile } from './models';
-import { NormalizedTokenLogProbs } from './normalizedTokenLogProbs';
+import { LogprobsEnum } from './logprobsEnum';
 
-export class NormalizedLogProbs {
-    'tokens': Array<NormalizedTokenLogProbs>;
-    'likelihood': number;
+export class GenerateOptionsRequest {
+    'logprobs'?: LogprobsEnum;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "tokens",
-            "baseName": "tokens",
-            "type": "Array<NormalizedTokenLogProbs>"
-        },
-        {
-            "name": "likelihood",
-            "baseName": "likelihood",
-            "type": "number"
+            "name": "logprobs",
+            "baseName": "logprobs",
+            "type": "LogprobsEnum"
         }    ];
 
     static getAttributeTypeMap() {
-        return NormalizedLogProbs.attributeTypeMap;
+        return GenerateOptionsRequest.attributeTypeMap;
     }
 }
 
+export namespace GenerateOptionsRequest {
+}

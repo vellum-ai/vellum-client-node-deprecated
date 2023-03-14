@@ -12,16 +12,12 @@
 
 import { RequestFile } from './models';
 
-export class Document {
-    'id': string;
-    /**
-    * A human-readable label for the document. Defaults to the originally uploaded file\'s file name.
-    */
-    'label': string;
-    /**
-    * The unique id of this document as it exists in the user\'s system. If not provided, will be set to the document\'s id.
-    */
+export class SubmitCompletionActualRequest {
+    'id'?: string | null;
     'externalId'?: string | null;
+    'text'?: string | null;
+    'quality'?: number | null;
+    'timestamp'?: Date | null;
 
     static discriminator: string | undefined = undefined;
 
@@ -32,18 +28,28 @@ export class Document {
             "type": "string"
         },
         {
-            "name": "label",
-            "baseName": "label",
-            "type": "string"
-        },
-        {
             "name": "externalId",
             "baseName": "external_id",
             "type": "string"
+        },
+        {
+            "name": "text",
+            "baseName": "text",
+            "type": "string"
+        },
+        {
+            "name": "quality",
+            "baseName": "quality",
+            "type": "number"
+        },
+        {
+            "name": "timestamp",
+            "baseName": "timestamp",
+            "type": "Date"
         }    ];
 
     static getAttributeTypeMap() {
-        return Document.attributeTypeMap;
+        return SubmitCompletionActualRequest.attributeTypeMap;
     }
 }
 

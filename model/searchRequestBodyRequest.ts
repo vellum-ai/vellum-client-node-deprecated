@@ -11,39 +11,40 @@
  */
 
 import { RequestFile } from './models';
+import { SearchRequestOptionsRequest } from './searchRequestOptionsRequest';
 
-export class Document {
-    'id': string;
-    /**
-    * A human-readable label for the document. Defaults to the originally uploaded file\'s file name.
-    */
-    'label': string;
-    /**
-    * The unique id of this document as it exists in the user\'s system. If not provided, will be set to the document\'s id.
-    */
-    'externalId'?: string | null;
+export class SearchRequestBodyRequest {
+    'indexId'?: string | null;
+    'indexName'?: string | null;
+    'query': string;
+    'options'?: SearchRequestOptionsRequest | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "indexId",
+            "baseName": "index_id",
             "type": "string"
         },
         {
-            "name": "label",
-            "baseName": "label",
+            "name": "indexName",
+            "baseName": "index_name",
             "type": "string"
         },
         {
-            "name": "externalId",
-            "baseName": "external_id",
+            "name": "query",
+            "baseName": "query",
             "type": "string"
+        },
+        {
+            "name": "options",
+            "baseName": "options",
+            "type": "SearchRequestOptionsRequest"
         }    ];
 
     static getAttributeTypeMap() {
-        return Document.attributeTypeMap;
+        return SearchRequestBodyRequest.attributeTypeMap;
     }
 }
 

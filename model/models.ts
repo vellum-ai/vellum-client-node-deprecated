@@ -4,9 +4,9 @@ export * from './document';
 export * from './enrichedNormalizedCompletion';
 export * from './finishReasonEnum';
 export * from './generateErrorResponse';
-export * from './generateOptions';
-export * from './generateRequest';
-export * from './generateRequestBody';
+export * from './generateOptionsRequest';
+export * from './generateRequestBodyRequest';
+export * from './generateRequestRequest';
 export * from './generateResponse';
 export * from './generateResult';
 export * from './generateResultData';
@@ -15,13 +15,17 @@ export * from './logprobsEnum';
 export * from './normalizedLogProbs';
 export * from './normalizedTokenLogProbs';
 export * from './searchErrorResponse';
-export * from './searchRequestBody';
-export * from './searchRequestOptions';
+export * from './searchRequestBodyRequest';
+export * from './searchRequestOptionsRequest';
 export * from './searchResponse';
 export * from './searchResult';
-export * from './submitCompletionActual';
+export * from './searchWeightsRequest';
+export * from './submitCompletionActualRequest';
 export * from './submitCompletionActualsErrorResponse';
-export * from './submitCompletionActualsRequest';
+export * from './submitCompletionActualsRequestRequest';
+export * from './uploadDocumentErrorResponse';
+export * from './uploadDocumentRequestBodyRequest';
+export * from './uploadDocumentResponse';
 
 import * as fs from 'fs';
 
@@ -40,9 +44,9 @@ import { Document } from './document';
 import { EnrichedNormalizedCompletion } from './enrichedNormalizedCompletion';
 import { FinishReasonEnum } from './finishReasonEnum';
 import { GenerateErrorResponse } from './generateErrorResponse';
-import { GenerateOptions } from './generateOptions';
-import { GenerateRequest } from './generateRequest';
-import { GenerateRequestBody } from './generateRequestBody';
+import { GenerateOptionsRequest } from './generateOptionsRequest';
+import { GenerateRequestBodyRequest } from './generateRequestBodyRequest';
+import { GenerateRequestRequest } from './generateRequestRequest';
 import { GenerateResponse } from './generateResponse';
 import { GenerateResult } from './generateResult';
 import { GenerateResultData } from './generateResultData';
@@ -51,13 +55,17 @@ import { LogprobsEnum } from './logprobsEnum';
 import { NormalizedLogProbs } from './normalizedLogProbs';
 import { NormalizedTokenLogProbs } from './normalizedTokenLogProbs';
 import { SearchErrorResponse } from './searchErrorResponse';
-import { SearchRequestBody } from './searchRequestBody';
-import { SearchRequestOptions } from './searchRequestOptions';
+import { SearchRequestBodyRequest } from './searchRequestBodyRequest';
+import { SearchRequestOptionsRequest } from './searchRequestOptionsRequest';
 import { SearchResponse } from './searchResponse';
 import { SearchResult } from './searchResult';
-import { SubmitCompletionActual } from './submitCompletionActual';
+import { SearchWeightsRequest } from './searchWeightsRequest';
+import { SubmitCompletionActualRequest } from './submitCompletionActualRequest';
 import { SubmitCompletionActualsErrorResponse } from './submitCompletionActualsErrorResponse';
-import { SubmitCompletionActualsRequest } from './submitCompletionActualsRequest';
+import { SubmitCompletionActualsRequestRequest } from './submitCompletionActualsRequestRequest';
+import { UploadDocumentErrorResponse } from './uploadDocumentErrorResponse';
+import { UploadDocumentRequestBodyRequest } from './uploadDocumentRequestBodyRequest';
+import { UploadDocumentResponse } from './uploadDocumentResponse';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -80,9 +88,9 @@ let typeMap: {[index: string]: any} = {
     "Document": Document,
     "EnrichedNormalizedCompletion": EnrichedNormalizedCompletion,
     "GenerateErrorResponse": GenerateErrorResponse,
-    "GenerateOptions": GenerateOptions,
-    "GenerateRequest": GenerateRequest,
-    "GenerateRequestBody": GenerateRequestBody,
+    "GenerateOptionsRequest": GenerateOptionsRequest,
+    "GenerateRequestBodyRequest": GenerateRequestBodyRequest,
+    "GenerateRequestRequest": GenerateRequestRequest,
     "GenerateResponse": GenerateResponse,
     "GenerateResult": GenerateResult,
     "GenerateResultData": GenerateResultData,
@@ -90,13 +98,17 @@ let typeMap: {[index: string]: any} = {
     "NormalizedLogProbs": NormalizedLogProbs,
     "NormalizedTokenLogProbs": NormalizedTokenLogProbs,
     "SearchErrorResponse": SearchErrorResponse,
-    "SearchRequestBody": SearchRequestBody,
-    "SearchRequestOptions": SearchRequestOptions,
+    "SearchRequestBodyRequest": SearchRequestBodyRequest,
+    "SearchRequestOptionsRequest": SearchRequestOptionsRequest,
     "SearchResponse": SearchResponse,
     "SearchResult": SearchResult,
-    "SubmitCompletionActual": SubmitCompletionActual,
+    "SearchWeightsRequest": SearchWeightsRequest,
+    "SubmitCompletionActualRequest": SubmitCompletionActualRequest,
     "SubmitCompletionActualsErrorResponse": SubmitCompletionActualsErrorResponse,
-    "SubmitCompletionActualsRequest": SubmitCompletionActualsRequest,
+    "SubmitCompletionActualsRequestRequest": SubmitCompletionActualsRequestRequest,
+    "UploadDocumentErrorResponse": UploadDocumentErrorResponse,
+    "UploadDocumentRequestBodyRequest": UploadDocumentRequestBodyRequest,
+    "UploadDocumentResponse": UploadDocumentResponse,
 }
 
 export class ObjectSerializer {

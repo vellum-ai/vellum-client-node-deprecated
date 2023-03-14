@@ -19,7 +19,7 @@ We recommend setting it as an environment variable.
 ### Generating text
 Here is how you can generate text completions using Vellum's API.
 
-```javascript
+```typescript
 const { GenerateApi, GenerateApiApiKeys } = require("vellum-client-node");
 
 const generate = new GenerateApi();
@@ -42,7 +42,7 @@ console.log(generation.body.results[0].data.completions[0].text);
 Submitting actuals is how you provide feedback to Vellum about the quality of the
 generated text. This feedback can be used to measure model quality and improve it over time.
 
-```javascript
+```typescript
 const { SubmitCompletionActualsApi, SubmitCompletionActualsApiApiKeys } = require("vellum-client-node");
 
 const actuals = new SubmitCompletionActualsApi();
@@ -67,11 +67,47 @@ key in the initial `generate` request. You can then include this `externalId` wh
 If you use this approach, be sure that the ids you provide truly are unique, or you may get unexpected
 results.
 
+
+### Uploading Documents to Search Across
+Documents can be uploaded to Vellum via either the UI or this API. Once uploaded and indexed,
+Vellum's Search allows you to perform semantic searches against them.
+Here is an example of how to upload a document from a local file:
+
+```typescript
+const fs = require('fs');
+const {UploadDocumentApi, UploadDocumentApiApiKeys} = require("vellum-client-node");
+
+const uploadDocumentsApi = new UploadDocumentApi();
+uploadDocumentsApi.setApiKey(UploadDocumentApiApiKeys.apiKeyAuth, process.env.VELLUM_API_KEY);
+
+const fileBuffer = await fs.createReadStream('/path/to/your/file.txt')
+
+const uploadDocumentResult = await uploadDocumentsApi.uploadDocument(
+        // Document label
+        "Human-friendly label for your document",
+        // File to upload
+        fileBuffer,
+        // Include either the Vellum Index ID
+        undefined,
+        // or the Index Name
+        "<your-index-name>",
+        // Optionally include a unique ID from your system to this document later
+        // Useful if you want to perform updates later
+        "<your-external-id>",
+        // Optionally include keywords to associate with the document that can be used in hybrid search
+        []
+    )
+;
+
+console.log(uploadDocumentResult.body.documentId);
+```
+
+
 ### Performing a Search
 Vellum's Search allows you to upload documents and then perform semantic searches against them.
 Here is an example of how to perform a search:
 
-```javascript
+```typescript
 const { SearchApi, SearchApiApiKeys } = require("vellum-client-node");
 
 const search = new SearchApi();
@@ -91,7 +127,7 @@ console.log(searchResult.body.results);
 
 API requests can potentially return errors due to invalid inputs or other issues. These errors can be handled with a `try...catch` statement, and the error details can be found in either `error.response` or `error.message`:
 
-```javascript
+```typescript
 try {
   const generation = await generate.generate(
     {

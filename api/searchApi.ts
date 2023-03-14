@@ -1,6 +1,6 @@
 /**
- * Vellum Predict API
- * Documentation of API endpoints used to make predictions through Vellum
+ * Vellum Client API
+ * Documentation of API endpoints of Vellum
  *
  * The version of the OpenAPI document: 1.0.0 (v1)
  * 
@@ -16,7 +16,7 @@ import http from 'http';
 
 /* tslint:disable:no-unused-locals */
 import { SearchErrorResponse } from '../model/searchErrorResponse';
-import { SearchRequestBody } from '../model/searchRequestBody';
+import { SearchRequestBodyRequest } from '../model/searchRequestBodyRequest';
 import { SearchResponse } from '../model/searchResponse';
 
 import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
@@ -93,9 +93,9 @@ export class SearchApi {
 
     /**
      * 
-     * @param searchRequestBody 
+     * @param searchRequestBodyRequest 
      */
-    public async search (searchRequestBody: SearchRequestBody, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: SearchResponse;  }> {
+    public async search (searchRequestBodyRequest: SearchRequestBodyRequest, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: SearchResponse;  }> {
         const localVarPath = this.basePath + '/v1/search';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -108,9 +108,9 @@ export class SearchApi {
         }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'searchRequestBody' is not null or undefined
-        if (searchRequestBody === null || searchRequestBody === undefined) {
-            throw new Error('Required parameter searchRequestBody was null or undefined when calling search.');
+        // verify required parameter 'searchRequestBodyRequest' is not null or undefined
+        if (searchRequestBodyRequest === null || searchRequestBodyRequest === undefined) {
+            throw new Error('Required parameter searchRequestBodyRequest was null or undefined when calling search.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -124,7 +124,7 @@ export class SearchApi {
             uri: localVarPath,
             useQuerystring: this._useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(searchRequestBody, "SearchRequestBody")
+            body: ObjectSerializer.serialize(searchRequestBodyRequest, "SearchRequestBodyRequest")
         };
 
         let authenticationPromise = Promise.resolve();

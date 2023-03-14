@@ -11,28 +11,28 @@
  */
 
 import { RequestFile } from './models';
-import { NormalizedTokenLogProbs } from './normalizedTokenLogProbs';
+import { SearchWeightsRequest } from './searchWeightsRequest';
 
-export class NormalizedLogProbs {
-    'tokens': Array<NormalizedTokenLogProbs>;
-    'likelihood': number;
+export class SearchRequestOptionsRequest {
+    'limit'?: number | null;
+    'weights'?: SearchWeightsRequest | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "tokens",
-            "baseName": "tokens",
-            "type": "Array<NormalizedTokenLogProbs>"
+            "name": "limit",
+            "baseName": "limit",
+            "type": "number"
         },
         {
-            "name": "likelihood",
-            "baseName": "likelihood",
-            "type": "number"
+            "name": "weights",
+            "baseName": "weights",
+            "type": "SearchWeightsRequest"
         }    ];
 
     static getAttributeTypeMap() {
-        return NormalizedLogProbs.attributeTypeMap;
+        return SearchRequestOptionsRequest.attributeTypeMap;
     }
 }
 
