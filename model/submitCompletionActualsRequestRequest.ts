@@ -11,39 +11,34 @@
  */
 
 import { RequestFile } from './models';
+import { SubmitCompletionActualRequest } from './submitCompletionActualRequest';
 
-export class Document {
-    'id': string;
-    /**
-    * A human-readable label for the document. Defaults to the originally uploaded file\'s file name.
-    */
-    'label': string;
-    /**
-    * The unique id of this document as it exists in the user\'s system. If not provided, will be set to the document\'s id.
-    */
-    'externalId'?: string | null;
+export class SubmitCompletionActualsRequestRequest {
+    'deploymentId'?: string | null;
+    'deploymentName'?: string | null;
+    'actuals': Array<SubmitCompletionActualRequest>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "deploymentId",
+            "baseName": "deployment_id",
             "type": "string"
         },
         {
-            "name": "label",
-            "baseName": "label",
+            "name": "deploymentName",
+            "baseName": "deployment_name",
             "type": "string"
         },
         {
-            "name": "externalId",
-            "baseName": "external_id",
-            "type": "string"
+            "name": "actuals",
+            "baseName": "actuals",
+            "type": "Array<SubmitCompletionActualRequest>"
         }    ];
 
     static getAttributeTypeMap() {
-        return Document.attributeTypeMap;
+        return SubmitCompletionActualsRequestRequest.attributeTypeMap;
     }
 }
 

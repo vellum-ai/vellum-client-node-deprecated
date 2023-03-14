@@ -1,6 +1,6 @@
 /**
- * Vellum Predict API
- * Documentation of API endpoints used to make predictions through Vellum
+ * Vellum Client API
+ * Documentation of API endpoints of Vellum
  *
  * The version of the OpenAPI document: 1.0.0 (v1)
  * 

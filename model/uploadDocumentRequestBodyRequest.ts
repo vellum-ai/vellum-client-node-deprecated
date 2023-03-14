@@ -12,23 +12,30 @@
 
 import { RequestFile } from './models';
 
-export class Document {
-    'id': string;
-    /**
-    * A human-readable label for the document. Defaults to the originally uploaded file\'s file name.
-    */
-    'label': string;
-    /**
-    * The unique id of this document as it exists in the user\'s system. If not provided, will be set to the document\'s id.
-    */
+export class UploadDocumentRequestBodyRequest {
+    'indexId'?: string | null;
+    'indexName'?: string | null;
     'externalId'?: string | null;
+    'label': string;
+    'file': RequestFile;
+    'keywords'?: Array<string> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
+            "name": "indexId",
+            "baseName": "index_id",
+            "type": "string"
+        },
+        {
+            "name": "indexName",
+            "baseName": "index_name",
+            "type": "string"
+        },
+        {
+            "name": "externalId",
+            "baseName": "external_id",
             "type": "string"
         },
         {
@@ -37,13 +44,18 @@ export class Document {
             "type": "string"
         },
         {
-            "name": "externalId",
-            "baseName": "external_id",
-            "type": "string"
+            "name": "file",
+            "baseName": "file",
+            "type": "RequestFile"
+        },
+        {
+            "name": "keywords",
+            "baseName": "keywords",
+            "type": "Array<string>"
         }    ];
 
     static getAttributeTypeMap() {
-        return Document.attributeTypeMap;
+        return UploadDocumentRequestBodyRequest.attributeTypeMap;
     }
 }
 
