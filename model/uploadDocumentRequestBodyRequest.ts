@@ -13,25 +13,19 @@
 import { RequestFile } from './models';
 
 export class UploadDocumentRequestBodyRequest {
-    'indexId'?: string | null;
-    'indexName'?: string | null;
+    'addToIndexNames'?: Array<string> | null;
     'externalId'?: string | null;
     'label': string;
-    'file': RequestFile;
+    'contents': RequestFile;
     'keywords'?: Array<string> | null;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "indexId",
-            "baseName": "index_id",
-            "type": "string"
-        },
-        {
-            "name": "indexName",
-            "baseName": "index_name",
-            "type": "string"
+            "name": "addToIndexNames",
+            "baseName": "add_to_index_names",
+            "type": "Array<string>"
         },
         {
             "name": "externalId",
@@ -44,8 +38,8 @@ export class UploadDocumentRequestBodyRequest {
             "type": "string"
         },
         {
-            "name": "file",
-            "baseName": "file",
+            "name": "contents",
+            "baseName": "contents",
             "type": "RequestFile"
         },
         {

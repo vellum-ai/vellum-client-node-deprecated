@@ -93,13 +93,12 @@ export class UploadDocumentApi {
     /**
      * 
      * @param label 
-     * @param file 
-     * @param indexId 
-     * @param indexName 
+     * @param contents 
+     * @param addToIndexNames 
      * @param externalId 
      * @param keywords 
      */
-    public async uploadDocument (label: string, file: RequestFile, indexId?: string, indexName?: string, externalId?: string, keywords?: Array<string>, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: UploadDocumentResponse;  }> {
+    public async uploadDocument (label: string, contents: RequestFile, addToIndexNames?: Array<string>, externalId?: string, keywords?: Array<string>, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.IncomingMessage; body: UploadDocumentResponse;  }> {
         const localVarPath = this.basePath + '/v1/upload-document';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
@@ -117,21 +116,17 @@ export class UploadDocumentApi {
             throw new Error('Required parameter label was null or undefined when calling uploadDocument.');
         }
 
-        // verify required parameter 'file' is not null or undefined
-        if (file === null || file === undefined) {
-            throw new Error('Required parameter file was null or undefined when calling uploadDocument.');
+        // verify required parameter 'contents' is not null or undefined
+        if (contents === null || contents === undefined) {
+            throw new Error('Required parameter contents was null or undefined when calling uploadDocument.');
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
 
         let localVarUseFormData = false;
 
-        if (indexId !== undefined) {
-            localVarFormParams['index_id'] = ObjectSerializer.serialize(indexId, "string");
-        }
-
-        if (indexName !== undefined) {
-            localVarFormParams['index_name'] = ObjectSerializer.serialize(indexName, "string");
+        if (addToIndexNames !== undefined) {
+            localVarFormParams['add_to_index_names'] = ObjectSerializer.serialize(addToIndexNames, "Array<string>");
         }
 
         if (externalId !== undefined) {
@@ -142,8 +137,8 @@ export class UploadDocumentApi {
             localVarFormParams['label'] = ObjectSerializer.serialize(label, "string");
         }
 
-        if (file !== undefined) {
-            localVarFormParams['file'] = file;
+        if (contents !== undefined) {
+            localVarFormParams['contents'] = contents;
         }
         localVarUseFormData = true;
 
