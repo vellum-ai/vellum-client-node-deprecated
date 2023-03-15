@@ -87,10 +87,8 @@ const uploadDocumentResult = await uploadDocumentsApi.uploadDocument(
         "Human-friendly label for your document",
         // File to upload
         fileBuffer,
-        // Include either the Vellum Index ID
-        undefined,
-        // or the Index Name
-        "<your-index-name>",
+        // The names of indexes that you'd like this document to be added to
+        ["<your-index-name>"],
         // Optionally include a unique ID from your system to this document later
         // Useful if you want to perform updates later
         "<your-external-id>",
