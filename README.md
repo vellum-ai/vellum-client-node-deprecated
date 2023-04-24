@@ -1,3 +1,5 @@
+# :no_entry: [DEPRECATED] Active at https://github.com/vellum-ai/vellum-client-node
+
 # Vellum Node.js Library
 
 The Vellum Node.js library provides convenient access to the Vellum Predict API from Node.js applications. Most of the code in this library is generated from our OpenAPI specification.
